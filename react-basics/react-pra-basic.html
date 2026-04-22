@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+
+  <style>
+    .js-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .btn {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .off-btn {
+      background-color: rgb(220, 53, 69);
+    }
+  </style>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+      function Buttons({value, onClick, className}) {
+        return (
+          <button type="button" onClick={onClick} className={className}>
+            {value}
+          </button>
+        )
+      }
+
+      function CounterApp () {
+        const [count, setCount] = React.useState(0);
+        const [isAutoClicking, setIsAutoClicking] = React.useState(false)
+        
+        function handleClick() {
+          setCount(prev => prev + 1)
+        }
+        const intervalRef = React.useRef(null)
+
+        function autoClick() {
+          if (!isAutoClicking) {
+            intervalRef.current = setInterval(() => {
+              setCount(prev => prev + 1)
+            }, 1000)
+            setIsAutoClicking(true)
+          } else {
+            clearInterval(intervalRef.current)
+            setIsAutoClicking(false)
+          }
+        }
+
+        return (
+          <>
+            <Buttons
+              value = {`Clicked ${count} times`}
+              onClick = {handleClick}
+              className = 'btn'
+            />
+            <Buttons
+              value = 'Reset'
+              onClick = {() => setCount(0)}
+              className = 'btn'
+            />
+            <Buttons
+              value = {isAutoClicking ? 'Stop Auto Click' : 'Start Auto Click'}
+              onClick = {autoClick}
+              className = {isAutoClicking ? 'btn off-btn' : 'btn on-btn'}
+            />  
+          </>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<CounterApp />);
+    </script>
+  </body>
+</html>

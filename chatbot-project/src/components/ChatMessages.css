@@ -1,0 +1,9 @@
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}

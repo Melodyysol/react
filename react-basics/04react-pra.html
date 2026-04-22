@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <style>
+      .btn {
+        background-color: rgb(0, 123, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+      function App() {
+        const currentTimeStr = dayjs().format('HH:mm:ss')
+        const [cerrentTime, setTime] = React.useState(currentTimeStr)
+        
+        React.useEffect(() => {
+
+        }, [])
+
+        function name(params) {
+          
+        }
+      }
+      
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

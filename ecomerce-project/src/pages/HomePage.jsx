@@ -1,10 +1,13 @@
-import './HomePage.css'
 import './header.css'
+import './HomePage.css'
 
 
 function HomePage() {
   return (
     <>
+      <title>Ecomerce Project</title>
+
+
       <div className="header">
         <div className="left-section">
           <a href="index.html" className="header-link">
@@ -46,7 +49,7 @@ function HomePage() {
             </div>
 
             <div className="product-name limit-text-to-2-lines">
-              Black and Gray Athletic Cotton Socks - 6 Pairs 
+              Black and Gray Athletic Cotton Socks - 6 Pairs
             </div>
 
             <div className="product-rating-container">

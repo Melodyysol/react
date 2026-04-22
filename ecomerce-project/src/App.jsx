@@ -1,9 +1,14 @@
+import { Routes, Route } from 'react-router'
 import './App.css'
 import HomePage from './pages/HomePage'
 
 function App() {
   return (
-    <HomePage />
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/orders" element={<div>Orders Page</div>} />
+      <Route path="/checkout" element={<div>Checkout Page</div>} />
+    </Routes>
   )
 }
 

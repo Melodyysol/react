@@ -46,7 +46,7 @@ function HomePage() {
             </div>
 
             <div className="product-name limit-text-to-2-lines">
-              Black and Gray Athletic Cotton Socks - 6 Pairs
+              Black and Gray Athletic Cotton Socks - 6 Pairs 
             </div>
 
             <div className="product-rating-container">

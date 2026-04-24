@@ -6,7 +6,13 @@ import checkmarkIcon from '../assets/icons/checkmark.png'
 import './HomePage.css'
 
 
-function HomePage() {
+async function HomePage() {
+
+  const response = await fetch('http://localhost:3000/api/products')
+    .then((response) => {
+      return response.json()
+    })
+    
   return (
     <>
       <title>Ecomerce Project</title>

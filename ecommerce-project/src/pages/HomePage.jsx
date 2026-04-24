@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Header from '../components/Header'
 import { products } from '../../starting-code/data/products'
 
@@ -6,11 +7,12 @@ import checkmarkIcon from '../assets/icons/checkmark.png'
 import './HomePage.css'
 
 
-async function HomePage() {
+function HomePage() {
 
-  const response = await fetch('http://localhost:3000/api/products')
+   axios.get('http://localhost:3000/api/products')
     .then((response) => {
-      return response.json()
+      console.log(response.data);
+      
     })
     
   return (

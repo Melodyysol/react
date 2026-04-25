@@ -6,7 +6,7 @@ import { useEffect, useState, Fragment } from 'react'
 import { formatMoney } from '../../utils/money'
 import Header from '../../components/Header'
 
-import { Link } from 'react-router'
+import { NavLink } from 'react-router'
 
 import buyAgainIcon from '../../assets/icons/buy-again.png'
 
@@ -16,10 +16,12 @@ function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    axios.get('/api/orders?expand=products')
-      .then((response) => {
-        setOrders(response.data)
-      })
+    const fetchOrderData = async () => {
+      const response = await axios.get('/api/orders?expand=products')
+      setOrders(response.data)
+    }
+
+    fetchOrderData()
   }, [])
 
   return (
@@ -83,11 +85,11 @@ function OrdersPage({ cart }) {
                         </div>
 
                         <div className="product-actions">
-                          <Link to="/tracking">
+                          <NavLink to="/tracking">
                             <button className="track-package-button button-secondary">
                               Track package
                             </button>
-                          </Link>
+                          </NavLink>
                         </div>
                       </Fragment>
                     )

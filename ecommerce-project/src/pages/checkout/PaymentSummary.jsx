@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { formatMoney } from '../../utils/money'
 
 function PaymentSummary({ paymentSummary }) {

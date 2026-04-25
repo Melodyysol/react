@@ -1,23 +1,39 @@
+import axios from 'axios'
+import { NavLink } from 'react-router'
+import { useState, useEffect } from 'react'
+
 import Header from '../components/Header'
-import { Link } from 'react-router'
 
 import './TrackingPage.css'
 
 
-function TrackingPage() {
+
+function TrackingPage({ cart }) {
+
+  const [tracking, setTracking] = useState([])
+
+  useEffect(() => {
+    const fetchTrackingData = async () => {
+      const response = await axios.get('/api/tracking')
+      setTracking(response.data)
+    }
+
+    fetchTrackingData()
+  })
+
   return (
     <>
       <title>Tracking</title>
       <link rel="icon" type="image/svg+xml" href="/tracking-favicon.png" />
 
 
-      <Header />
+      <Header cart={cart} />
 
       <div className="tracking-page">
         <div className="order-tracking">
-          <Link className="back-to-orders-link link-primary" to="/orders">
+          <NavLink className="back-to-orders-link link-primary" to="/orders">
             View all orders
-          </Link>
+          </NavLink>
 
           <div className="delivery-date">
             Arriving on Monday, June 13

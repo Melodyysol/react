@@ -2,7 +2,6 @@ import axios from 'axios'
 import OrderSummary from './OrderSummary'
 import PaymentSummary from './PaymentSummary'
 import { useState, useEffect } from 'react'
-import { formatMoney } from '../../utils/money'
 import CheckoutHeader from './CheckoutHeader'
 
 import './CheckoutPage.css'
@@ -14,15 +13,16 @@ function CheckoutPage({ cart }) {
   const [paymentSummary, setPaymentSummary] = useState(null);
 
   useEffect(() => {
-    axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
-      .then(response => {
-        setDeliveryOptions(response.data)
-      });
+    const fetchCheckoutData = async () => {
+      let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+      setDeliveryOptions(response.data)
 
-    axios.get('/api/payment-summary')
-      .then(response => {
-        setPaymentSummary(response.data)
-      });
+
+      response = await axios.get('/api/payment-summary')
+      setPaymentSummary(response.data)
+    }
+
+    fetchCheckoutData()
   }, [])
 
   return (
@@ -31,7 +31,7 @@ function CheckoutPage({ cart }) {
       <link rel="icon" type="image/svg+xml" href="/cart-favicon.png" />
 
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>

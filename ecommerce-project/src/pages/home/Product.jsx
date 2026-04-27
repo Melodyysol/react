@@ -31,7 +31,8 @@ function Product({ product, loadCart }) {
 
 
   return (
-    <div className="product-container">
+    <div className="product-container"
+      data-testId="product-container">
       <div className="product-image-container">
         <img className="product-image"
           data-testId="product-image"
@@ -72,7 +73,7 @@ function Product({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart" style={{opacity: isAdded ? 1 : 0}}>
+      <div className="added-to-cart" style={{ opacity: isAdded ? 1 : 0 }}>
         <img src={checkmarkIcon} />
         Added
       </div>

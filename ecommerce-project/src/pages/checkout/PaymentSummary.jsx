@@ -20,21 +20,24 @@ function PaymentSummary({ paymentSummary, loadCart }) {
 
       {paymentSummary && (
         <>
-          <div className="payment-summary-row">
+          <div className="payment-summary-row"
+            data-testId="payment-summary-product-cost">
             <div>Items ({paymentSummary.totalItems}):</div>
             <div className="payment-summary-money">
               {formatMoney(paymentSummary.productCostCents)}
             </div>
           </div>
 
-          <div className="payment-summary-row">
+          <div className="payment-summary-row"
+            data-testId="payment-summary-shipping-cost">
             <div>Shipping &amp; handling:</div>
             <div className="payment-summary-money">
               {formatMoney(paymentSummary.shippingCostCents)}
             </div>
           </div>
 
-          <div className="payment-summary-row subtotal-row">
+          <div className="payment-summary-row subtotal-row"
+            data-testId="payment-summary-total-cost-before-tax">
             <div>Total before tax:</div>
             <div className="payment-summary-money">
               {formatMoney(paymentSummary.totalCostBeforeTaxCents)}
@@ -43,20 +46,22 @@ function PaymentSummary({ paymentSummary, loadCart }) {
 
           <div className="payment-summary-row">
             <div>Estimated tax (10%):</div>
-            <div className="payment-summary-money">
+            <div className="payment-summary-money"
+              data-testId="payment-summary-tax">
               {formatMoney(paymentSummary.taxCents)}
             </div>
           </div>
 
           <div className="payment-summary-row total-row">
             <div>Order total:</div>
-            <div className="payment-summary-money">
+            <div className="payment-summary-money"
+              data-testId="payment-summary-total-cost">
               {formatMoney(paymentSummary.totalCostCents)}
             </div>
           </div>
 
           <button className="place-order-button button-primary"
-            onClick={createOrder}>
+            onClick={createOrder} data-testId="place-order-button">
             Place your order
           </button>
         </>

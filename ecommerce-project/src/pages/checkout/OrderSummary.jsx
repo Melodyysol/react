@@ -1,6 +1,6 @@
 
 import DeliveryOptions from './DeliveryOptions'
-import CartItemDetails from '../orders/CartItemDetails';
+import CartItemDetails from './CartItemDetails';
 import DeliveryDate from '../orders/DeliveryDate';
 
 function OrderSummary({ cart, deliveryOptions, loadCart }) {

@@ -103,3 +103,8 @@ if (productCount === 0) {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Added cors
+app.use(cors({
+  origin: "*"
+}));

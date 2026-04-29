@@ -41,7 +41,7 @@ function CartItemDetails({ cartItem, loadCart }) {
   return (
     <Fragment>
       <img className="product-image"
-        src={cartItem.product.image} />
+        src={cartItem.product.image} data-testId="product-image" />
 
       <div className="cart-item-details">
         <div className="product-name">
@@ -56,15 +56,15 @@ function CartItemDetails({ cartItem, loadCart }) {
               ? <input className="input-quantity" type="text"
                 value={quantity}
                 onKeyDown={handleQuantityKeyDown}
-                onChange={handleChange} />
+                onChange={handleChange} data-testId="input-quantity" />
               : <span className="quantity-label">{quantity}</span>}
           </span>
           <span className="update-quantity-link link-primary"
-            onClick={updateCartQuantity}>
+            onClick={updateCartQuantity} data-testId="update-quantity-link">
             Update
           </span>
           <span className="delete-quantity-link link-primary"
-            onClick={deleteCartItem}>
+            onClick={deleteCartItem} data-testId="delete-quantity-link">
             Delete
           </span>
         </div>

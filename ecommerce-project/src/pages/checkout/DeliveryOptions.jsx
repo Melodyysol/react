@@ -17,7 +17,7 @@ function DeliveryOptions({ deliveryOptions, cartItem, loadCart }) {
         }
 
         const updateDeliveryOption = async () => {
-          await axios.put(`/api/cart-items/${cartItem.productId}`, {
+          await axios.put(`https://react-backend-eb45.onrender.com/api/cart-items/${cartItem.productId}`, {
             deliveryOptionId: deliveryOption.id
           });
           await loadCart()

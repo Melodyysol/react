@@ -14,11 +14,11 @@ function CheckoutPage({ cart, loadCart }) {
 
   useEffect(() => {
     const fetchCheckoutData = async () => {
-      let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+      let response = await axios.get('https://react-backend-eb45.onrender.com/api/delivery-options?expand=estimatedDeliveryTime')
       setDeliveryOptions(response.data)
 
 
-      response = await axios.get('/api/payment-summary')
+      response = await axios.get('https://react-backend-eb45.onrender.com/api/payment-summary')
       setPaymentSummary(response.data)
     }
 
@@ -27,7 +27,7 @@ function CheckoutPage({ cart, loadCart }) {
 
   useEffect(() => {
     const fetchCheckoutData = async () => {
-      const response = await axios.get('/api/payment-summary')
+      const response = await axios.get('https://react-backend-eb45.onrender.com/api/payment-summary')
       setPaymentSummary(response.data)
     }
 

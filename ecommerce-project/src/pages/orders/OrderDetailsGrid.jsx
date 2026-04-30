@@ -12,7 +12,7 @@ function OrderDetailsGrid({ order, loadCart }) {
     <div key={order.id} className="order-details-grid">
       {order.products.map((orderProduct) => {
         const addToCart = async () => {
-          await axios.post('/api/cart-items', {
+          await axios.post('https://react-backend-eb45.onrender.com/api/cart-items', {
             productId: orderProduct.product.id,
             quantity: 1
           })

@@ -9,13 +9,13 @@ function CartItemDetails({ cartItem, loadCart }) {
   const [quantity, setQuantity] = useState(cartItem.quantity)
 
   const deleteCartItem = async () => {
-    await axios.delete(`/api/cart-items/${cartItem.productId}`)
+    await axios.delete(`https://react-backend-eb45.onrender.com/api/cart-items/${cartItem.productId}`)
     await loadCart()
   }
 
   const updateCartQuantity = async () => {
     if (isUpdatingQuantity) {
-      await axios.put(`/api/cart-items/${cartItem.productId}`, {
+      await axios.put(`https://react-backend-eb45.onrender.com/api/cart-items/${cartItem.productId}`, {
         quantity: Number(quantity)
       })
       await loadCart()

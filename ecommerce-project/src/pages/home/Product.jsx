@@ -12,7 +12,7 @@ function Product({ product, loadCart }) {
   const [isAdded, setIsAdded] = useState(false)
 
   const addToCart = async () => {
-    await axios.post('/api/cart-items', {
+    await axios.post('https://react-backend-eb45.onrender.com/api/cart-items', {
       productId: product.id,
       quantity
     })

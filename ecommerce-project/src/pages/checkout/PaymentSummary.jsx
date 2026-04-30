@@ -7,7 +7,7 @@ function PaymentSummary({ paymentSummary, loadCart }) {
   const navigate = useNavigate()
 
   const createOrder = async () => {
-    await axios.post('/api/orders')
+    await axios.post('https://react-backend-eb45.onrender.com/api/orders')
     await loadCart()
     navigate('/orders')
   }

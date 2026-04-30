@@ -17,7 +17,7 @@ function HomePage({ cart, loadCart }) {
 
   useEffect(() => {
     const getHomeData = async () => {
-      const urlPath = search ? `/api/products?search=${search}` : '/api/products'
+      const urlPath = search ? `https://react-backend-eb45.onrender.com/api/products?search=${search}` : 'https://react-backend-eb45.onrender.com/api/products'
       const response = await axios.get(urlPath)
       setProducts(response.data)
     }

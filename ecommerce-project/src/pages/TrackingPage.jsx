@@ -16,7 +16,7 @@ function TrackingPage({ cart }) {
 
   useEffect(() => {
     const fetchTrackingData = async () => {
-      const response = await axios.get(`/api/orders/${orderId}?expand=products`)
+      const response = await axios.get(`https://react-backend-eb45.onrender.com/api/orders/${orderId}?expand=products`)
       setOrder(response.data)
     }
     fetchTrackingData()
